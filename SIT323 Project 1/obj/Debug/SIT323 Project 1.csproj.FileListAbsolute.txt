@@ -1,0 +1,9 @@
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\bin\Debug\SIT323 Project 1.exe.config
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\bin\Debug\SIT323 Project 1.exe
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\bin\Debug\SIT323 Project 1.pdb
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.csprojResolveAssemblyReference.cache
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323_Project_1.Form1.resources
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323_Project_1.Properties.Resources.resources
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.csproj.GenerateResource.Cache
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.exe
+a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.pdb
