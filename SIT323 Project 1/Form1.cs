@@ -35,7 +35,7 @@ namespace SIT323_Project_1
                 try
                 {
                     table = "";     // clear all content in table when opening new file
-                    txtShowAll.Text = "";
+                    txtShowAll.Text = "Error List:";
                     // Reading File
                     var text = File.ReadAllLines(file);
                     txtLine1.Text = text[0];
@@ -52,11 +52,7 @@ namespace SIT323_Project_1
                     // Adding headers into restriciton for checking errors
                     try
                     {
-                        // Check Level 
-                        if (fileHeader[0].ToString() != "EASY" && fileHeader[0].ToString() != "MEDIUM" && fileHeader[0].ToString() != "HARD")
-                        {
-                            txtShowAll.Text += "Difficulty Level Error. Please change level to EASY, MEDIUM or HARD!.";
-                        }
+             
                         wordList.level = fileHeader[0].ToString();
                         wordList.numWords = Convert.ToInt32(fileHeader[1]);
                         wordList.numRows = Convert.ToInt32(fileHeader[2]);
@@ -64,22 +60,41 @@ namespace SIT323_Project_1
                         wordList.horizonWord = Convert.ToInt32(fileHeader[4]);
                         wordList.vertiWord = Convert.ToInt32(fileHeader[5]);
 
+                        // Check Level EASY, MEDIUM, HARD
+                        if (fileHeader[0].ToString() != "EASY" && fileHeader[0].ToString() != "MEDIUM" && fileHeader[0].ToString() != "HARD")
+                        {
+                            txtShowAll.Text += Environment.NewLine + "Difficulty Level Error. Please change level to EASY, MEDIUM or HARD!.";
+                        }
+                        // Check Word List Range 10 ~ 1000
+                        if(wordList.numWords  < 10 || wordList.numWords > 1000)
+                        {
+                            txtShowAll.Text += Environment.NewLine + "The wordlist size: " + wordList.numWords  + " in the header is not within the range 10 to 1000, inclusive.";
+                        }
+                        // Check nubmer of rows in Crozzle: 4 ~ 400
+                        if(wordList.numRows < 4 || wordList.numRows > 400)
+                        {
+                            txtShowAll.Text += Environment.NewLine + "The rows size: " + wordList.numRows + " in the header is not within the range 4 to 400, inclusive.";
+                        }
+                        // Check nubmer of Column in Crozzle: 8 ~ 800
+                        if (wordList.numCols < 8 || wordList.numCols > 800)
+                        {
+                            txtShowAll.Text += Environment.NewLine + "The column size: " + wordList.numCols + " in the header is not within the range 8 to 800, inclusive.";
+                        }
+
                         // Adding the Crozzle words into a list
                         for (int i = 2; i < text.Length; i++)
                         {
-                            newCrozzle.Add(new WordFormat { position = text[i].Split(',')[0], colLocaiton = Convert.ToInt32(text[i].Split(',')[1]), rowLocation = Convert.ToInt32(text[i].Split(',')[2]), word = text[i].Split(',')[3] });
+                            newCrozzle.Add(new WordFormat { position = text[i].Split(',')[0], rowLocation = Convert.ToInt32(text[i].Split(',')[1]), colLocation = Convert.ToInt32(text[i].Split(',')[2]), word = text[i].Split(',')[3] });
                         }
                     }
                     catch (Exception ex)
                     {
-                        txtShowAll.Text = String.Format("An Error has occured: '{0}'", ex);
+                        txtShowAll.Text = String.Format("Incorrect text file format. Please Insert correct Text file. " + ex);
                     }
 
-                    foreach(var o in newCrozzle)
-                    {
-                       //txtShowAll.Text += "\n " + o.word;
-                       
-                    }
+                    
+
+                   
 
                     // Check for duplicates
                     var duplicates = newCrozzle.GroupBy(x => x.word).Where(g => g.Count() > 1).Select(g => g.Key);
@@ -100,18 +115,67 @@ namespace SIT323_Project_1
                 catch (IOException)
                 {
                 }
-              
-                
-              // Displaying the Crozzle
+
+                #region Storing letter by row and col in two dimension array
+                char[,] a = new char[400, 800];
+                foreach (WordFormat words in newCrozzle)
+                {
+                    int wordLenght = words.word.Length;
+                    int row = words.rowLocation - 1;
+                    int col = words.colLocation - 1;
+
+                    if (words.position == "HORIZONTAL")
+                    {
+                       
+                        for (int i = 0; i < wordLenght; i++)
+                        {
+                           
+                            a[row, col] = words.word[i];
+                          //  txtShowAll.Text += Environment.NewLine + row + " " + col + " " + wordLenght + " " + wordList.numRows + " " + wordList.numCols;
+                            col++;
+                            //row++;
+                            //col++;
+                            //txtShowAll.Text += a[row, col];
+                        }
+                       // txtShowAll.Text += Environment.NewLine + words.word;
+                       // txtShowAll.Text += Environment.NewLine + a[row, col];
+                    }
+                    if (words.position == "VERTICAL")
+                    {
+                        for (int i = 0; i < wordLenght; i++)
+                        {
+
+                            if (a[row, col] != ' ')
+                            {
+                                a[row, col] = words.word[i];
+                                //  txtShowAll.Text += Environment.NewLine + row + " " + col + " " + wordLenght + " " + wordList.numRows + " " + wordList.numCols;
+                                row++;
+                            }
+                        }
+                    }
+
+                }
+                #endregion
+
+                #region Displaying the Crozzle
+                // Displaying the Crozzle
                 for (int i = 0; i < wordList.numRows; i++)
                 {
                     table += "<tr>";
                     for (int j = 0; j < wordList.numCols; j++)
                     {
-                        table += "<td></td>";
+                        if (a[i, j] != ' ')
+                        {
+                            table += "<td>" + a[i, j].ToString() + "</td>";
+                        }
+                        else
+                            table += "<td> </td>";
                     }
                     table += "</tr>";
                 }
+                #endregion
+
+
                 GenerateHtml();
             }
          

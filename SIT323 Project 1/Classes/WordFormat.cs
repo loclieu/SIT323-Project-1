@@ -10,7 +10,7 @@ namespace SIT323_Project_1
     {
         public string position { get; set; }
         public int rowLocation { get; set; }
-        public int colLocaiton { get; set; }
+        public int colLocation { get; set; }
         public string word { get; set; }
     }
 }

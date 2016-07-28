@@ -7,3 +7,12 @@ a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\
 a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.csproj.GenerateResource.Cache
 a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.exe
 a:\user\documents\visual studio 2015\Projects\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.pdb
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\bin\Debug\SIT323 Project 1.exe.config
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\bin\Debug\SIT323 Project 1.exe
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\bin\Debug\SIT323 Project 1.pdb
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.csprojResolveAssemblyReference.cache
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323_Project_1.Form1.resources
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323_Project_1.Properties.Resources.resources
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.csproj.GenerateResource.Cache
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.exe
+A:\User\Desktop\SIT323 Project 1\SIT323 Project 1\obj\Debug\SIT323 Project 1.pdb
